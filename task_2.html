@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 200px;
+            background-image: url("bg.webp");
+        }
+        .calculator {
+            margin-top: 30px;
+            padding-left: 460px;
+        }
+        .calculator input {
+            padding: 10px;
+            font-size: 16px;
+            margin: 5px 0;
+        }
+        .calculator button {
+            padding: 10px 90px;
+            font-size: 16px;
+            cursor: pointer;
+           background-color:rgb(13, 174, 37)
+        }
+    </style>
+</head>
+<body>
+    <h1><center>CALCULATOR</center></h1>
+    <div class="calculator">
+        <input type="number" id="num1" placeholder="Enter first number"><br>
+        <input type="number" id="num2" placeholder="Enter second number"><br>
+        <button id="equalButton" onclick="calculateAndGreet()">ADD</button>
+    </div>
+    <script>
+        function calculateAndGreet() {
+            const num1 = parseFloat(document.getElementById('num1').value);
+            const num2 = parseFloat(document.getElementById('num2').value);
+            const sum = num1 + num2;
+            const equalButton = document.getElementById('equalButton');
+            equalButton.style.backgroundColor = equalButton.style.backgroundColor === 'blue' ? 'green' : 'blue';
+            const hours = new Date().getHours();
+            let greeting;
+            if (hours < 12) {
+                greeting = 'Good Morning';
+            } else if (hours < 18) {
+                greeting = 'Good Afternoon';
+            } else {
+                greeting = 'Good Evening';
+            }
+            alert(`${greeting}\nAnswer: ${sum}.\nThank you :)`);
+        }
+    </script>
+</body>
+</html>
